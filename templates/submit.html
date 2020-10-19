@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="m-5">
+        <h3>Submit a Code</h3>
+        <form method="post">
+            <div class="form-group">
+                <label for="contestantName">Name</label>
+                <input type="text" class="form-control" name="contestant" id="contestantName" value="{{ default_name }}" placeholder="Your ID. Leave blank to generate automatically.">
+            </div>
+            <div class="form-group">
+                <label for="problemId">Problem</label>
+                <select class="form-control" id="problemId" name="problem">
+                    {% for problem_id in problem_ids %}
+                        <option value="{{ problem_id }}">{{ problem_id }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="languageName">Language</label>
+                <select class="form-control" id="languageName" name="language">
+                    {% for language in languages %}
+                        <option value="{{ language.name }}" {% if language.name == default_language %}selected{% endif %}>{{ language.display_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="source">Source Code</label>
+                <textarea class="form-control" id="source" rows="10" name="source"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+{% endblock %}

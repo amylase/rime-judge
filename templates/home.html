@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Rime Judge</h1>
+  <p class="lead">This is a simple web-based contest system for contest organizers to host a mock contest.</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="{{ url_for('submit') }}" role="button">Submit a Solution</a>
+</div>
+{% endblock %}

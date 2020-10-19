@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="m-5">
+        <h4>{{ status }}</h4>
+        <h4>Duration: {{ start_time }} - {{ end_time }}</h4>
+
+        <table class="table table-sm table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Contestant</th>
+                <th scope="col">Solved</th>
+                <th scope="col">Penalty</th>
+                {% for problem_id in problem_ids %}
+                    <th scope="col">{{ problem_id}}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for contestant_info in standings %}
+                <tr>
+                    <th scope="row">{{ contestant_info.contestant_id }}</th>
+                    <th scope="row">{{ contestant_info.solved }}</th>
+                    <th scope="row">{{ contestant_info.penalty }}</th>
+
+                    {% for problem_id in problem_ids %}
+                        <td>{{ contestant_info.problems[problem_id] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

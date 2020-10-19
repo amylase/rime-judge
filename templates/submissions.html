@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="m-5">
+        <table class="table table-sm table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Contestant</th>
+                <th scope="col">Problem</th>
+                <th scope="col">Language</th>
+                <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for submission in submissions %}
+                <tr>
+                    <th scope="row">{{ submission.id }}</th>
+                    <td>{{ submission.contestant_id }}</td>
+                    <td>{{ submission.problem_id }}</td>
+                    <td>{{ submission.language }}</td>
+                    <td>{{ submission.status }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
